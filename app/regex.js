@@ -24,7 +24,15 @@ exports.regexAnswers = {
   },
 
   endsWithVowel: function(str) {
-
+    var x = str[str.length - 1];   
+    s = 'aeiouAEIOU';
+    b = false;
+    for (var i = 0; i < s.length; i++) {
+      if (x === s[i]) {
+        b = true;
+      }
+    }
+    return b;
   },
 
   captureThreeNumbers: function(str) {

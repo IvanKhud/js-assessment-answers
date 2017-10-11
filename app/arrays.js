@@ -36,7 +36,10 @@ exports.arraysAnswers = {
         arr1.push(arr[i]);  
       } 
     }
-    arr = arr1;
+    for (var i=0; i < arr1.length; i++) {
+      arr[i] = arr1[i];
+    }
+    arr.length = arr1.length;
     return arr;
   },
 

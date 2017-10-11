@@ -46,7 +46,9 @@ exports.arraysAnswers = {
   },
 
   truncate: function(arr) {
-
+    arr[arr.length - 1]  = undefined; 
+    arr.length--;
+    return arr;
   },
 
   prepend: function(arr, item) {

@@ -52,7 +52,11 @@ exports.arraysAnswers = {
   },
 
   prepend: function(arr, item) {
-
+    for (var i = arr.length; i>0; i--) {
+      arr[i] = arr[i-1];
+    }
+    arr[0] = item;
+    return arr;
   },
 
   curtail: function(arr) {

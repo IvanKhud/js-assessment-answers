@@ -30,11 +30,19 @@ exports.arraysAnswers = {
   },
 
   removeWithoutCopy: function(arr, item) {
-
+    var arr1 = [];
+    for (var i=0; i<arr.length; i++) {
+      if (arr[i] !== item) {
+        arr1.push(arr[i]);  
+      } 
+    }
+    arr = arr1;
+    return arr;
   },
 
   append: function(arr, item) {
-
+    arr[arr.length] = item;
+    return arr;
   },
 
   truncate: function(arr) {

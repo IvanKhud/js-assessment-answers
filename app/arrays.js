@@ -21,7 +21,7 @@ exports.arraysAnswers = {
 
   remove: function(arr, item) {
     var arr1 = [];
-    for (var i=0; i<arr.length; i++) {
+    for (var i=0; i < arr.length; i++) {
       if (arr[i] !== item) {
         arr1.push(arr[i]);  
       } 
@@ -31,7 +31,7 @@ exports.arraysAnswers = {
 
   removeWithoutCopy: function(arr, item) {
     var arr1 = [];
-    for (var i=0; i<arr.length; i++) {
+    for (var i=0; i < arr.length; i++) {
       if (arr[i] !== item) {
         arr1.push(arr[i]);  
       } 
@@ -60,7 +60,12 @@ exports.arraysAnswers = {
   },
 
   curtail: function(arr) {
-
+    for (var i = 0; i < arr.length - 1; i++) {
+      arr[i] = arr[i+1];
+    }
+    arr[arr.length-1] = undefined;
+    arr.length--;
+    return arr;
   },
 
   concat: function(arr1, arr2) {

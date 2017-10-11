@@ -101,10 +101,27 @@ exports.arraysAnswers = {
   },
 
   duplicates: function(arr) {
-    var arr1 = [], dup = [];
-    for (i=0; i< arr.length; i++) {
-  
+    var arr1 = [];
+    for (var i = 0; i < arr.length; i++) {
+       b = false;
+       for (var j = i + 1; j < arr.length; j++) {
+         if (arr[i] === arr[j]) {
+           b = true;
+         }    
+       }
+       if (b) {
+         var b1 = true;
+         for (var k = 0; k < arr1.length; k++) {
+           if (arr[i] === arr1[k]) {
+             b1 = false;
+           }
+         }
+         if (b1) {
+           arr1.push(arr[i]);
+         }
+       }
     }
+    return arr1;
   },
 
   square: function(arr) {

@@ -3,7 +3,7 @@ exports = typeof window === 'undefined' ? global : window;
 exports.arraysAnswers = {
   indexOf: function(arr, item) {
     var k = -1;
-    for (var i=0; i<=arr.length; i++) {
+    for (var i=0; i<arr.length; i++) {
       if (arr[i] === item) {
         k = i;  
       } 
@@ -12,7 +12,11 @@ exports.arraysAnswers = {
   },
 
   sum: function(arr) {
-
+    var s = 0;
+    for (var i=0; i<arr.length; i++) {
+      s += parseInt(arr[i]);
+    }
+    return parseInt(s);
   },
 
   remove: function(arr, item) {

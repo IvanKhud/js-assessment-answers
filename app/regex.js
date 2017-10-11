@@ -48,7 +48,46 @@ exports.regexAnswers = {
   },
 
   matchesPattern: function(str) {
-
+    if (str.length !== 12) {
+      return false;
+    }
+    if (isNaN(str[0])) {
+      return false;
+    }
+    if (isNaN(str[1])) {
+      return false;
+    }
+    if (isNaN(str[2])) {
+      return false;
+    }
+    if (isNaN(str[4])) {
+      return false;
+    }
+    if (isNaN(str[5])) {
+      return false;
+    }
+    if (isNaN(str[6])) {
+      return false;
+    }
+    if (isNaN(str[8])) {
+      return false;
+    }
+    if (isNaN(str[9])) {
+      return false;
+    }
+    if (isNaN(str[10])) {
+      return false;
+    }
+    if (isNaN(str[11])) {
+      return false;
+    }
+    if (str[3] !== '-') {
+      return false;
+    }
+    if (str[7] !== '-') {
+      return false;
+    }
+    return true;
   },
 
   isUSD: function(str) {

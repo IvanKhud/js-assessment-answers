@@ -36,7 +36,15 @@ exports.regexAnswers = {
   },
 
   captureThreeNumbers: function(str) {
-
+    var i = 1, s1 = "";
+    while (i < str.length - 1) {
+      if ( (! isNaN(str[i])) && (! isNaN(str[i-1])) && (! isNaN(str[i+1])) ) {
+        var s1 = str[i-1] + str[i] + str[i+1];
+        return s1;
+      }    
+      i++;
+    }
+    return false;
   },
 
   matchesPattern: function(str) {

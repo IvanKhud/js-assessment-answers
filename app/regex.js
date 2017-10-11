@@ -10,7 +10,7 @@ exports.regexAnswers = {
   },
 
   endsWithVowel: function(str) {
-    return 'aeiou'.indexOf( str[str.length-1].toLowerCase() ) !== -1;
+    return /[aeiou]/.test(str[str.length-1].toLowerCase());
   },
 
   captureThreeNumbers: function(str) {

@@ -14,7 +14,13 @@ exports.regexAnswers = {
   },
 
   containsRepeatingLetter: function(str) {
-
+    var b = false;
+    for (var i = 1; i < str.length; i++) {
+      if ( (str[i] === str[i-1]) && isNaN(str[i]) ) {
+        b = true;
+      }
+    }
+    return b;
   },
 
   endsWithVowel: function(str) {

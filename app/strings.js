@@ -10,6 +10,11 @@ exports.stringsAnswers = {
   },
 
   reverseString: function(str) {
-
+    s1 = "";
+    for (var i = str.length - 1; i >= 0; i--) {
+      s1 += str[i];
+    }
+    str = s1; 
+    return str;
   }
 };

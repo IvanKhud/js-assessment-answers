@@ -21,7 +21,18 @@ exports.stringsAnswers = {
   },
 
   wordWrap: function(str, cols) {
-
+    var arr = str.split(" ");
+    var str1 = arr[0];
+    for (var i = 1; i < arr.length; i++) {
+      if ((arr[i-1].length > 1) || (arr[i].length > 1 )) {  
+        str1 += '\n';
+      }
+      else {
+        str1 +=' ';
+      }
+      str1 += arr[i];
+    }
+    return str1;
   },
 
   reverseString: function(str) {

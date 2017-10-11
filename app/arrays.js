@@ -69,7 +69,14 @@ exports.arraysAnswers = {
   },
 
   concat: function(arr1, arr2) {
-
+    var arrnew = [];
+    for (var i=0; i < arr1.length; i++) {
+      arrnew.push(arr1[i]);
+    }
+    for (var i=0; i < arr2.length; i++) {
+      arrnew.push(arr2[i]);
+    }
+    return arrnew;
   },
 
   insert: function(arr, item, index) {

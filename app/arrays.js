@@ -84,7 +84,13 @@ exports.arraysAnswers = {
   },
 
   count: function(arr, item) {
-
+    var c = 0;
+    for (var i=0; i<arr.length; i++) {
+      if (arr[i] === item) {
+        c++;  
+      } 
+    }  
+    return c;
   },
 
   duplicates: function(arr) {

@@ -83,7 +83,11 @@ exports.arraysAnswers = {
   },
 
   insert: function(arr, item, index) {
-
+    for (var i = arr.length; i>index; i--) {
+      arr[i] = arr[i-1];
+    }
+    arr[index] = item;
+    return arr;
   },
 
   count: function(arr, item) {
@@ -97,7 +101,10 @@ exports.arraysAnswers = {
   },
 
   duplicates: function(arr) {
-
+    var arr1 = [], dup = [];
+    for (i=0; i< arr.length; i++) {
+  
+    }
   },
 
   square: function(arr) {

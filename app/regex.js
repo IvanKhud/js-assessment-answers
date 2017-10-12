@@ -18,9 +18,7 @@ exports.regexAnswers = {
     if (a === null) {
       return false
     }
-    else {
-      return a[0];
-    }
+    return a[0];
   },
 
   matchesPattern: function(str) {

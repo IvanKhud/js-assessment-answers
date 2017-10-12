@@ -18,7 +18,7 @@ exports.functionsAnswers = {
   },
 
   partial: function(fn, str1, str2) {
-
+    return fn.bind(null, str1, str2, '!!!');
   },
 
   useArguments: function() {

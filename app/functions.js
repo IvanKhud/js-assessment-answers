@@ -22,7 +22,11 @@ exports.functionsAnswers = {
   },
 
   useArguments: function() {
-
+    var a = 0;
+    for (var i in arguments) {
+      a += arguments[i];
+    };
+    return a;
   },
 
   callIt: function(fn) {

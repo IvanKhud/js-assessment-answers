@@ -12,7 +12,6 @@ exports.bestPracticesAnswers = {
     var myObject = {
       name: 'Jory'
     };
-
     return myObject;
   },
 
@@ -21,11 +20,6 @@ exports.bestPracticesAnswers = {
   },
 
   identity: function(val1, val2) {
-    if (val1 === val2) {
-      return true;
-    }
-    else {
-      return false;
-    }
+    return (val1 === val2) ? true:false;
   }
 };

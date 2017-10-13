@@ -40,7 +40,12 @@ exports.functionsAnswers = {
   },
 
   callIt: function(fn) {
-
+    var arr = [];
+    for (var i in arguments) {
+      arr[i] = arguments[i];
+    }
+    arr.shift();
+    return fn.apply(fn, arr);
   },
 
   partialUsingArguments: function(fn) {

@@ -28,7 +28,7 @@ exports.functionsAnswers = {
 
 
   partial: function(fn, str1, str2) {
-    return fn.bind(null, str1, str2, '!!!');
+    return fn.bind(fn, str1, str2, '!!!');
   },
 
   useArguments: function() {
@@ -49,7 +49,21 @@ exports.functionsAnswers = {
   },
 
   partialUsingArguments: function(fn) {
+    var arr1 = [];
 
+    for (var i in arguments) {
+      arr1[i] = arguments[i];
+    }
+    arr1.shift();
+
+    return function () {
+      var arr2 = [];
+      for (var i in arguments) {
+        arr2[i] = arguments[i];
+      }   
+      arr1 = arr1.concat(arr2);
+      return fn.apply(this, arr1);
+    }
   },
 
   curryIt: function(fn) {

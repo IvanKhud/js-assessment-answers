@@ -42,7 +42,7 @@ exports.functionsAnswers = {
   callIt: function(fn) {
     var arr = [];
     for (var i in arguments) {
-      arr[i] = arguments[i];
+      arr.push(arguments[i]);
     }
     arr.shift();
     return fn.apply(fn, arr);
@@ -52,14 +52,14 @@ exports.functionsAnswers = {
     var arr1 = [];
 
     for (var i in arguments) {
-      arr1[i] = arguments[i];
+      arr1.push(arguments[i]);
     }
     arr1.shift();
 
     return function () {
       var arr2 = [];
       for (var i in arguments) {
-        arr2[i] = arguments[i];
+        arr2.push(arguments[i]);
       }   
       arr1 = arr1.concat(arr2);
       return fn.apply(this, arr1);
@@ -67,6 +67,12 @@ exports.functionsAnswers = {
   },
 
   curryIt: function(fn) {
-
+    var arr = [];
+    return function fn_curried(x) {
+      for (var i in arguments) { 
+        arr.push(arguments[i]);
+      }
+      return arr.length >= fn.length ? fn.apply(fn, arr) : fn_curried;
+    };
   }
 };

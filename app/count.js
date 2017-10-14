@@ -2,7 +2,11 @@ exports = typeof window === 'undefined' ? global : window;
 
 exports.countAnswers = {
   count: function (start, end) {
-    t = (end - start + 1)*100;
-    return setTimeout(this, t);
+    if (start <= end) {    	
+      console.log(start);
+      start++;
+      var timerId = setTimeout(exports.countAnswers.count, 100, start, end);
+    }
+    return {cancel: function() {clearTimeout(timerId)}}
   }
 };

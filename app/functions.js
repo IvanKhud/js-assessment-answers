@@ -40,25 +40,13 @@ exports.functionsAnswers = {
   },
 
   callIt: function(fn) {
-    var arr = [];
-    for (var i = 1; i < arguments.length; i++) {
-      arr[i-1] = arguments[i];
-    }
-    return fn.apply(fn, arr);
+    return fn.apply(null, Array.prototype.slice.call(arguments, 1));
   },
 
   partialUsingArguments: function(fn) {
-    var arr1 = [];
-
-    for (var i = 1; i < arguments.length; i++) {
-      arr1[i-1] = arguments[i];
-    }
-
+    var arr1 = Array.prototype.slice.call(arguments, 1);
     return function () {
-      var arr2 = [];
-      for (var i in arguments) {
-        arr2.push(arguments[i]);
-      }   
+      var arr2 = Array.prototype.slice.call(arguments, 0);
       arr1 = arr1.concat(arr2);
       return fn.apply(this, arr1);
     }

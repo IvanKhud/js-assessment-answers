@@ -41,20 +41,18 @@ exports.functionsAnswers = {
 
   callIt: function(fn) {
     var arr = [];
-    for (var i in arguments) {
-      arr.push(arguments[i]);
+    for (var i = 1; i < arguments.length; i++) {
+      arr[i-1] = arguments[i];
     }
-    arr.shift();
     return fn.apply(fn, arr);
   },
 
   partialUsingArguments: function(fn) {
     var arr1 = [];
 
-    for (var i in arguments) {
-      arr1.push(arguments[i]);
+    for (var i = 1; i < arguments.length; i++) {
+      arr1[i-1] = arguments[i];
     }
-    arr1.shift();
 
     return function () {
       var arr2 = [];

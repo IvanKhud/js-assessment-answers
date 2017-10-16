@@ -6,7 +6,21 @@ exports.recursionAnswers = {
   },
 
   permute: function(arr) {
-
+    var result = [],
+        arr1 = [];
+    return (function myFunc() {
+       for (var i = 0; i < arr.length; i++) {
+            var x = arr.splice(i, 1);
+            arr1.push(x);
+            if (arr.length == 0) {
+                result.push(arr1.slice());
+            }
+            myFunc();
+            arr.splice(i, 0, x);
+            arr1.pop();
+        }
+        return result;
+    })();
   },
 
   fibonacci: function(n) {
@@ -21,8 +35,7 @@ exports.recursionAnswers = {
         return [""];
 
     var result = [];
-    for (var i = 0; i < n; ++i) {
-
+    for (var i = 0; i < n; i++) {
         var lefts = exports.recursionAnswers.validParentheses(i);
         var rights = exports.recursionAnswers.validParentheses(n - i - 1);
 

@@ -1,7 +1,24 @@
 exports = typeof window === 'undefined' ? global : window;
 
 exports.recursionAnswers = {
-  listFiles: function(data, dirName) {
+  listFiles: function(data, dirName, answer) {
+    var answer = answer || [];
+    var dirName = dirName || data.dir;
+    if (dirName === data.dir) {
+    for (var i = 0; i < data.files.length; i++) {
+        if (typeof data.files[i] === "string") {
+          answer.push(data.files[i]); 
+        } else {
+          answer = exports.recursionAnswers.listFiles(data.files[i], null, answer)               
+        };
+      };
+    } else {
+      for (var i = 0; i < data.files.length; i++) {
+        if (typeof data.files[i] !== "string") {
+          answer = exports.recursionAnswers.listFiles(data.files[i], dirName, answer)}
+        };
+    };
+    return answer;
 
   },
 
